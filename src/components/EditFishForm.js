@@ -19,6 +19,7 @@ class EditFishForm extends React.Component {
         event.preventDefault();
         if(window.confirm(`Are you sure you want to remove ${this.props.fish.name}?`)) {
             this.props.removeFish(this.props.index)
+            this.props.removeOrder(this.props.index)
         }
     }
 

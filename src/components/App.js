@@ -85,6 +85,20 @@ class App extends React.Component {
         this.setState({ fishes: fishes });
     }
 
+    removeOrder = (key) => {
+        // copy existing state
+        const order = {...this.state.order};
+
+        // delete item from order obj
+        delete order[key];
+
+        // update state
+        this.setState({ order: order });
+
+        // update localStorage
+        localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
+    }
+
     loadSampleFishes = () => {
         this.setState({
             fishes: sampleFishes
@@ -116,6 +130,7 @@ class App extends React.Component {
                     loadSampleFishes={this.loadSampleFishes} 
                     fishes={this.state.fishes}
                     removeFish={this.removeFish}
+                    removeOrder={this.removeOrder}
                 />
             </div>
         );

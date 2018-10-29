@@ -16,6 +16,7 @@ class Inventory extends React.Component {
                         index={fish} 
                         fish={fishes[fish]}
                         removeFish={this.props.removeFish}
+                        removeOrder={this.props.removeOrder}
                     />
                 )}
                 <AddFishForm addFish={this.props.addFish} />
